@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+
 public class MyBinarySearchTree<T extends Comparable<T>> {
     private Node<T> head = null;
     private int size = 0;
@@ -217,17 +218,16 @@ public class MyBinarySearchTree<T extends Comparable<T>> {
         print(node.right);
     }
 
-
-    public void addAll(ArrayList<T> list){
+    public void addAll(ArrayList<T> list) {
         addAll(list, head);
     }
 
-    public void addAll(ArrayList<T> list, Node<T> node){
-        if (node==null){
+    public void addAll(ArrayList<T> list, Node<T> node) {
+        if (node == null) {
             return;
         }
         addAll(list, node.left);
-        for(int i=0; i<node.count; i++){
+        for (int i = 0; i < node.count; i++) {
             list.add(node.data);
         }
         addAll(list, node.right);

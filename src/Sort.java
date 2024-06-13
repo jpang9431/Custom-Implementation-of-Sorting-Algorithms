@@ -123,10 +123,10 @@ class Sort<T extends Comparable<T>> {
         }
     }
 
-    private int maxNum(ArrayList<Integer> list){
+    private int maxNum(ArrayList<Integer> list) {
         int max = Integer.MIN_VALUE;
-        for(int i=0; i<list.size(); i++){
-            if (list.get(i)>max){
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) > max) {
                 max = list.get(i);
             }
         }
@@ -136,11 +136,11 @@ class Sort<T extends Comparable<T>> {
     private void modifiedInsertionSort(ArrayList<Integer> list, int divisor) {
         for (int i = 0; i < list.size(); i++) {
             int minIndex = i;
-            int minNum = (list.get(i)/divisor)%10;
+            int minNum = (list.get(i) / divisor) % 10;
             for (int j = i + 1; j < list.size(); j++) {
-                if ((list.get(j)/divisor)%10<minNum) {
+                if ((list.get(j) / divisor) % 10 < minNum) {
                     minIndex = j;
-                    minNum = (list.get(j)/divisor)%10;
+                    minNum = (list.get(j) / divisor) % 10;
                 }
             }
             Integer temp = list.get(i);
@@ -149,14 +149,12 @@ class Sort<T extends Comparable<T>> {
         }
     }
 
-    public void radixSort(ArrayList<Integer> list){
-        int numDigits = (int) (Math.log10(maxNum(list))+1);
-        for(int i=0; i<numDigits; i++){
+    public void radixSort(ArrayList<Integer> list) {
+        int numDigits = (int) (Math.log10(maxNum(list)) + 1);
+        for (int i = 0; i < numDigits; i++) {
             modifiedInsertionSort(list, (int) Math.pow(10, i));
         }
     }
-
-
 
     public static void main(String[] args) {
         ArrayList<Integer> nums = generateRandomNums(9, 0, 15);
